@@ -88,8 +88,38 @@ $(document).ready(function() {
 
      };
 
+     function updateRowColor($hourRow,hour) {
+        
+        if (test) {console.log("rowColor ",nowhour24, hour); }
+
+        if (hour < nowHour24) {
+            if(test) {console.log("lessThan"); }
+            $hourRow.css("background-color","lightgrey")
+        }
+        else if (hour > nowHour24) {
+            if (test) { console.log("greaterThan"); }
+            $hourRow.css("background-color","tomato")
+        }
+     };
+
+     $(document).on('click','i',function(event) {
+
+        event.preventDefault();
+        if (test) {console.log('click pta before' + planTextArr); }
+
+        let $index = $(this).attr('save-id');
+        let inputId = '#input-'+$index;
+        let $value = $(inputId).val();
+        planTextArr[$index] = $value;
+
+        if (test) { console.log('this ', $value); }
+        if (test) { console.log('value ', $value); }
+        if (test) { console.log('index ', $index); }
+        if (test) { console.log('click pta after '+ planTextArr); }
+
+        localStorage.setItem("storedPlans", JSON.stringify(planTextArr));
+     });
 
 
-     
 
-})
+});
