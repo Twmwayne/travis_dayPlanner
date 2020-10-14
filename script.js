@@ -3,6 +3,8 @@ $(document).ready(function() {
     const now = moment().format('MMMM Do YYYY');
     const nowHour24 = moment().format('H');
     const nowHour12 = moment().format('h');
+    // const nowHour24 = 13;
+    // const nowHour12 = 1;
 
     let $dateHeading = $('#navbar-subtitle');
     $dateHeading.text(now);
@@ -90,7 +92,7 @@ $(document).ready(function() {
 
      function updateRowColor($hourRow,hour) {
         
-        if (test) {console.log("rowColor ",nowhour24, hour); }
+        if (test) { console.log("rowColor ",nowHour24, hour); }
 
         if (hour < nowHour24) {
             if(test) {console.log("lessThan"); }
