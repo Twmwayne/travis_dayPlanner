@@ -58,14 +58,38 @@ $(document).ready(function() {
 
         $timeBoxSpn.text(`${displayHour}) ${ampm}`);
 
+        $rowDiv.append($col2TimeDiv);
+        $col2TimeDiv.append($timeBoxSpn);
+
+        let $dailyPlanSpn = $('<input>');
+        $dailyPlanSpn.attr('id',`input-${index}`);
+        $dailyPlanSpn.attr('type','text');
+        $dailyPlanSpn.attr('class','dailyPlan');
+        $dailyPlanSpn.val( planTextArr[index] );
+        let $col9IptDiv = $('<div>');
+        $col9IptDiv.addClass('col-md-9');
+
+        $rowDiv.append($col9IptDiv);
+        $col9IptDiv.append($dailyPlanSpn);
+
+        let $col1SaveDiv = $('<div>');
+        $col1SaveDiv.addClass('col-md-1');
+
+        let $saveBtn = $('<i>');
+        $saveBtn.attr('save-id',index);
+        $saveBtn.attr('class',"far fa-save saveIcon");
+
+        $rowDiv.append($col1SaveDiv);
+        $col1SaveDiv.append($saveBtn);
+
+        updateRowColor($rowDiv, hour);
+
+        $plannerDiv.append($rowDiv);
+
+     };
 
 
 
-
-
-
-
-
-     }
+     
 
 })
